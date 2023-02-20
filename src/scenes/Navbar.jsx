@@ -19,26 +19,22 @@ const Link = ({ page, selectedPage, setSelectedPage }) => {
 
 const Navbar = ({ selectedPage, setSelectedPage }) => {
   const [isMenuToggled, setIsMenuToggled] = useState(false);
-  const isDesktop = useMediaQuery("(min-width: 768px)");
+  const isDesktop = useMediaQuery("(min-width: 948px)");
 
   return (
-    <nav className={`z-40 w-full fixed py-2 ${isDesktop ? 'bottom-0' : 'top-0'}`}>
+    <nav className="fixed z-40 top-0 right-0 pr-5 py-4">
       <div className="flex items-center justify-between">
-        <h4 className="font-sans text-6xl px-5 font-medium">JACK HALL</h4>
-        {/* <div className="w-25 border-2 p-2 pr-8 border-slate-100">
-          <h4 className="font-sans text- font-semibold pr-3">JACK HALL</h4>
-        </div> */}
 
         {/* DESKTOP NAV */}
         {isDesktop ? (
-          <div className="pr-5 flex justify-between gap-16 font-sans text-sm font-regular">
+          <div className="pr-5 py-2 flex justify-between gap-40 font-sans text-xl font-regular">
             <Link
-              page="PROJECTS"
+              page="WORK"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
             <Link
-              page="ART"
+              page="ABOUT"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
@@ -50,7 +46,7 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
           </div>
         ) : (
           <button
-            className="rounded-full bg-black p-2"
+            className="z-80 rounded-full bg-black p-2"
             onClick={() => setIsMenuToggled(!isMenuToggled)}
           >
             <img alt="menu-icon" src="../assets/menu-icon.svg" />
@@ -70,12 +66,12 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
             {/* MENU ITEMS */}
             <div className="flex flex-col justify-center items-center text-2xl gap-10 text-white font-sans font-regular">
             <Link
-              page="PROJECTS"
+              page="WORK"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
             <Link
-              page="ART"
+              page="ABOUT"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
