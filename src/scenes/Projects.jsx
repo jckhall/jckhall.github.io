@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const container = {
   hidden: {},
@@ -15,62 +16,18 @@ const projectVariant = {
   visible: { opacity: 1, scale: 1 },
 };
 
-const Project = ({ title }) => {
+const Project = ({ title, selectedPage, setSelectedPage }) => {
   const projectTitle = title;
+  const [isPopupToggled, setPopupToggle] = useState(false);
+  console.log(selectedPage)
 
   return (
     <motion.div variants={projectVariant} className="relative">
-      <img
-        className = "border-2 sm:hover:scale-105 duration-700"
-        src={`../assets/${projectTitle}`} alt={projectTitle}/>
-    </motion.div>
-  );
-};
-
-const Projects = () => {
-  const [isPopupToggled, setPopupToggle] = useState(false);
-
-  return (
-    <section id="projects">
-
-      {/* PROJECTS */}
-      <div className="flex justify-center">
-        <motion.div
-          className="sm:grid sm:grid-cols-5 gap-5"
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {/* ROW 1 */}
-          <div
-            className="row-span-2 col-span-2"
-            onClick={() => setPopupToggle(!isPopupToggled)}>
-            <Project title="bioanalytics.png" />
-          </div>
-          <div
-            className="row-span-1 col-span-1"
-            onClick={() => setPopupToggle(!isPopupToggled)}>
-            <Project title="tiles.gif" />
-          </div>
-          <div 
-            className="row-span-2 col-span-2"
-            onClick={() => setPopupToggle(!isPopupToggled)}>
-            <Project title="gum_2.png" />
-          </div>
-          <div
-            className="row-span-1 col-span-1"
-            onClick={() => setPopupToggle(!isPopupToggled)}>
-            <Project title="drawing_1.png" />
-          </div>
-          <div
-            className="row-span-1 col-span-3"
-            onClick={() => setPopupToggle(!isPopupToggled)}>
-            <Project title="photo.png" />
-          </div>
-
-        </motion.div>
-      </div>
+      <AnchorLink href="#about">
+        <img
+            className = "cursor-pointer border-2 sm:hover:scale-105 duration-700"
+            src={`../assets/${projectTitle}`} alt={projectTitle}/>
+      </AnchorLink>
 
       {/* MORE INFO POPUP */}
       {isPopupToggled && (
@@ -92,7 +49,51 @@ const Projects = () => {
           </div>
         </div>
         )}
-    </section>
+    </motion.div>
+  );
+};
+
+const Projects = ({ selectedPage, setSelectedPage }) => {
+  return (
+      <div className="flex justify-center">
+        <motion.div
+          className="sm:grid sm:grid-cols-9 gap-5"
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {/* ROW 1 */}
+          <div
+            className="row-span-3 col-span-3">
+            <Project
+              title="bioanalytics.png"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}/>
+          </div>
+          <div
+            className="row-span-1 col-span-2">
+            <Project
+              title="tiles.gif"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}/>
+          </div>
+          <div 
+            className="row-span-2 col-span-4">
+            <Project
+              title="gum_2.png"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}/>
+          </div>
+          <div
+            className="row-span-1 col-span-2">
+            <Project
+              title="drawing_1.png"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}/>
+          </div>
+        </motion.div>
+      </div>
   );
 };
 
