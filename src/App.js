@@ -3,10 +3,12 @@ import { motion } from "framer-motion";
 // import useMediaQuery from "./hooks/useMediaQuery";
 import { useState } from "react";
 import Projects from "./scenes/Projects";
-import About from "./scenes/About";
+import ProjectDetails from "./scenes/ProjectDetails";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("work");
+  const [selectedProject, setSelectedProject] = useState(`bioanalytics.png`);
+
   // const isDesktop = useMediaQuery("(min-width: 948px)");
   return (
     <div className="app bg-black">
@@ -23,12 +25,12 @@ function App() {
               margin="0 0 -200px 0"
               amount="all"
             >
-              <Projects selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+              <Projects setSelectedProject={setSelectedProject}/>
             </motion.div>
           </div>
         </section>
       </div>
-      <About/>
+        <ProjectDetails selectedProject={selectedProject}/>
     </div>
   );
 }
