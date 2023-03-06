@@ -2,24 +2,32 @@ import { useState } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import useMediaQuery from "../hooks/useMediaQuery";
 
-const Link = ({ page, selectedPage, setSelectedPage }) => {
+const Link = ({ page, selectedPage, setSelectedPage, setSelectedProject }) => {
+
+  const isDesktop = useMediaQuery("(min-width: 948px)");
+  const goToSection = (lowerCasePage) => {
+    if (isDesktop) {
+      document.getElementById(`${lowerCasePage}`).scrollIntoView( { behavior: "smooth" } )
+    }
+  }
+  
   const lowerCasePage = page.toLowerCase();
   return (
-    <AnchorLink
+    <span
       className={`${
         selectedPage === lowerCasePage ? "text-white" : "text-zinc-400"
       } hover:text-white hover:underline hover:underline-offset-8 duration-500`}
       href={`#${lowerCasePage}`}
-      onClick={() => setSelectedPage(lowerCasePage)}
+          onClick={() => { setSelectedPage(lowerCasePage); if(lowerCasePage==='about'){setSelectedProject(lowerCasePage); setTimeout(() => {goToSection(lowerCasePage)}, 20); }}}
     >
       {page}
-    </AnchorLink>
+    </span>
   );
 };
 
-const Navbar = ({ selectedPage, setSelectedPage }) => {
-  const [isMenuToggled, setIsMenuToggled] = useState(false);
+const Navbar = ({ selectedPage, setSelectedPage, setSelectedProject }) => {
   const isDesktop = useMediaQuery("(min-width: 948px)");
+  const [isMenuToggled, setIsMenuToggled] = useState(false);
 
   return (
     <nav className="fixed z-40 top-0 right-0 pr-5 py-4">
@@ -27,21 +35,24 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
 
         {/* DESKTOP NAV */}
         {isDesktop ? (
-          <div className="pr-5 py-2 flex justify-between gap-40 font-sans text-xl font-regular">
+          <div className="py-2 flex justify-between gap-40 font-sans text-xl font-regular">
             <Link
               page="WORK"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
+              setSelectedProject={setSelectedProject}
             />
             <Link
               page="ABOUT"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
+              setSelectedProject={setSelectedProject}
             />
             <Link
               page="CONTACT"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
+              setSelectedProject={setSelectedProject}
             />
           </div>
         ) : (
@@ -57,7 +68,7 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
         {!isDesktop && isMenuToggled && (
           <div className="z-30 fixed h-full inset-0 p-6 bg-black">
             {/* CLOSE ICON */}
-            <div className="flex justify-end p-12">
+            <div className="flex justify-end pb-32">
               <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
                 <img alt="close-icon" src="../assets/close-icon.svg" />
               </button>

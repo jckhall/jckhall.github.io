@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
+import useMediaQuery from "../hooks/useMediaQuery";
 // import { useState } from "react";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const container = {
   hidden: {},
@@ -18,17 +18,23 @@ const projectVariant = {
 
 const Project = ({ title, setSelectedProject }) => {
   const project = title.split('.')[0].toLowerCase()
+  const isDesktop = useMediaQuery("(min-width: 948px)");
+
+  const goToSection = () => {
+    if (isDesktop) {
+      document.getElementById("about").scrollIntoView( { behavior: "smooth" } )
+    }
+  }
 
   return (
     <motion.div
       variants={projectVariant}
       className="relative">
-      <AnchorLink href="#details">
-        <img
-            onClick={() => setSelectedProject(title)}
-            className = "cursor-pointer border-2 sm:hover:scale-105 duration-700"
-            src={`../assets/${title}`} alt={project}/>
-      </AnchorLink>
+      <img
+          draggable="false"
+          onClick={() => {setSelectedProject(project); setTimeout(() => {goToSection()}, 20);}}
+          className = "cursor-pointer border-2 sm:hover:scale-105 duration-700"
+          src={`../assets/${title}`} alt={project}/>
     </motion.div>
   );
 };
@@ -64,7 +70,7 @@ const Projects = ( { setSelectedProject } ) => {
           <div
             className="row-span-1 col-span-2">
             <Project
-              title="drawing.png"
+              title="art.png"
               setSelectedProject={setSelectedProject}/>
           </div>
         </motion.div>

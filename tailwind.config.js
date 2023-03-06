@@ -13,6 +13,7 @@ module.exports = {
         green: "#FFFAF0",
         lime: "#55D67A",
         beige: "#FFFAF0",
+        emerald: "#4F9463",
         "dark-grey": "#757575",
         "opaque-black": "rgba(0,0,0,0.35)",
       },
