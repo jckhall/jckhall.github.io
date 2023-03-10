@@ -4,58 +4,134 @@ import useMediaQuery from "./hooks/useMediaQuery";
 import { useState } from "react";
 import Projects from "./scenes/Projects";
 import ProjectDetails from "./scenes/ProjectDetails";
+import ProjectDetailsMobile from "./scenes/ProjectDetailsMobile";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { ChevronLeft, ChevronRight } from "react-feather"
+import { ProjectImage }  from "./utils/projectConfig";
+// import { ChevronLeft, ChevronRight } from "react-feather"
 
 
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("work");
   const [selectedProject, setSelectedProject] = useState(undefined);
+  const [isMenuToggled, setIsMenuToggled] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 948px)");
 
   return (
     <div className="app bg-black">
-      <div className="z-20 w-full fixed py-4 top-0">
-        <div className="flex items-center justify-between">
-          <h4 className="font-sans text-6xl mr-12 px-5 font-medium">JACK HALL</h4>
-        </div>
-      </div>
-      <section id="work">
-        <div className="h-screen sm:flex sm:items-center">
-          <Navbar selectedPage={selectedPage} setSelectedPage={setSelectedPage} setSelectedProject={setSelectedProject} />
-            <div className="m-auto pt-48 sm:pt-20 w-4/5">
-              <motion.div
-                margin="0 0 -200px 0"
-                amount="all"
-                onViewportEnter={() => setTimeout(() => {setSelectedPage("work")}, 400)}
-              >
-                <Projects isDesktop={isDesktop} setSelectedProject={setSelectedProject}/>
-              </motion.div>
+      {isDesktop && (
+        <section id="work">
+          <div className="z-20 w-full absolute py-4 bottom-0">
+            <div className="flex items-center justify-between">
+              <h4 className="font-sans text-6xl mr-12 px-5 font-medium">JACK HALL</h4>
             </div>
-        </div>
-      </section>
+          </div>
+          <div className="h-screen sm:flex sm:items-center">
+            <Navbar
+            selectedPage={selectedPage}
+            setSelectedPage={setSelectedPage}
+            setSelectedProject={setSelectedProject}
+            isMenuToggled={isMenuToggled}
+            setIsMenuToggled={setIsMenuToggled}/>
+              <div className="m-auto pt-48 sm:pt-20 w-4/5">
+                <motion.div
+                  margin="0 0 -200px 0"
+                  amount="all"
+                  onViewportEnter={() => setTimeout(() => {setSelectedPage("work")}, 400)}
+                >
+                  <Projects isDesktop={isDesktop} setSelectedProject={setSelectedProject} />
+                </motion.div>
+              </div>
+          </div>
+        </section>
+      )}
+      {!isDesktop && !selectedProject && (
+        <section id="work">
+          <div className="z-20 w-full fixed py-4 top-0">
+             <div className="flex items-center justify-between">
+              <h4 className="font-sans text-6xl mr-12 px-5 font-medium">JACK HALL</h4>
+            </div>
+          </div>
+          <div className="sm:flex sm:items-center">
+            <Navbar
+            selectedPage={selectedPage}
+            setSelectedPage={setSelectedPage}
+            setSelectedProject={setSelectedProject}
+            isMenuToggled={isMenuToggled}
+            setIsMenuToggled={setIsMenuToggled}/>
+              <div className="m-auto pt-48 sm:pt-20 w-4/5">
+                <motion.div
+                  margin="0 0 -200px 0"
+                  amount="all"
+                  onViewportEnter={() => setTimeout(() => {setSelectedPage("work")}, 400)}
+                >
+                  <Projects isDesktop={isDesktop} setSelectedProject={setSelectedProject} />
+                </motion.div>
+              </div>
+          </div>
+        </section>
+      )}
       {isDesktop && (
         <section id="about" className="block relative -top-[10px] invisible"></section>
       )}
+      {isDesktop && selectedProject && (
       <div className="mb-28">
-        {isDesktop && selectedProject && (
-          <div className="h-[calc(100vh-110px)] w-full rounded-3xl border-green border-4">
-            <AnchorLink href="#work" className="z-50 absolute right-0 pr-10 pt-6">
-                <img alt="up-chevron" src="../assets/up-chevron.svg" />
-            </AnchorLink>
-            <ProjectDetails selectedProject={selectedProject} setSelectedPage={setSelectedPage}/>
+
+        <div className="h-[calc(100vh-110px)] w-full rounded-3xl border-green border-4">
+          <AnchorLink href="#work" className="z-50 absolute right-0 pr-10 pt-6">
+              <img alt="up-chevron" src="../assets/up-chevron.svg" />
+          </AnchorLink>
+          <ProjectDetails selectedProject={selectedProject} setSelectedPage={setSelectedPage}/>
+        </div>
+        </div>
+      )}
+      {!isDesktop && selectedProject && selectedProject!=='about' && (
+        <ProjectDetailsMobile selectedProject={selectedProject} setSelectedProject={setSelectedProject}/>
+      )}
+      {!isDesktop && selectedProject==='about' && (
+      <div className="z-40 fixed h-full inset-0 p-6 bg-black">
+          {/* CLOSE ICON */}
+          <div className="flex justify-end">
+          <button
+              className="z-80 rounded-full bg-black"
+              onClick={() => {setSelectedProject(undefined); setIsMenuToggled(true)}}>
+              <img alt="menu-icon" src="../assets/menu-icon.svg" />
+          </button>
           </div>
-        )}
-      </div>
-      {/* <div className="z-5 absolute inset-0 flex items-center justify-between p-8">
-				<button>
-        	<ChevronLeft size={20} />
-        </button>
-        <button>
-        	<ChevronRight size={20} />
-        </button>
-      </div> */}
+      <div className="h-full pt-32 p-8">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            onViewportEnter={() => setSelectedPage("about")}
+          >
+          <p className="font-sans text-2xl text-center">
+            Hey! My name's Jack, I'm a front end dev from Sydney and I love building beautiful products.
+          </p>
+          <p className="mt-12 font-sans text-xl text-center">
+            Feel free to reach out on any of the pipes below
+          </p>
+          <div className="flex justify-center my-10 gap-7">
+            <a
+              className="hover:opacity-50 transition duration-500"
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img alt="linkedin-link" src="../assets/linkedin.png" />
+            </a>
+            <a
+              className="hover:opacity-50 transition duration-500"
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img alt="instagram-link" src="../assets/instagram.png" />
+            </a>
+          </div>
+        </motion.div>
+        </div>
+      </div>)}
     </div>
   );
 }

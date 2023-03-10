@@ -32,7 +32,7 @@ const Project = ({ title, setSelectedProject }) => {
       className="relative">
       <img
           draggable="false"
-          onClick={() => {setSelectedProject(project); setTimeout(() => {goToSection()}, 20);}}
+          onClick={() => {setSelectedProject(project); setTimeout(() => {goToSection()}, 5);}}
           className = "cursor-pointer border-2 sm:hover:scale-105 duration-700"
           src={`../assets/${title}`} alt={project}/>
     </motion.div>
