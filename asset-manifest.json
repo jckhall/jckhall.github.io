@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/jckhall.github.io/static/css/main.c466aeb8.css",
+    "main.js": "/jckhall.github.io/static/js/main.1e11d664.js",
+    "index.html": "/jckhall.github.io/index.html",
+    "main.c466aeb8.css.map": "/jckhall.github.io/static/css/main.c466aeb8.css.map",
+    "main.1e11d664.js.map": "/jckhall.github.io/static/js/main.1e11d664.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c466aeb8.css",
+    "static/js/main.1e11d664.js"
+  ]
+}
