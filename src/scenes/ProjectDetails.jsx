@@ -48,7 +48,7 @@ const ProjectDetails = ( { selectedProject, setSelectedPage } ) => {
 	return (
 		<div className="h-full max-h-screen flex justify-between">
 			 	<div className="z-30 absolute mr-28 pt-20 right-0">
-              <h4 className="font-sans text-8xl font-medium">{selectedProject}</h4>
+              <h4 className="font-sans text-8xl font-medium">{selectedProject.toUpperCase()}</h4>
       	</div>
 				<div className="flex items-center pl-14">
 					<img

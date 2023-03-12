@@ -75,15 +75,14 @@ function App() {
         <section id="about" className="block relative -top-[10px] invisible"></section>
       )}
       {isDesktop && selectedProject && (
-      <div className="mb-28">
-
+      <div>
         <div className="h-[calc(100vh-110px)] w-full rounded-3xl border-green border-4">
           <AnchorLink href="#work" className="z-50 absolute right-0 pr-10 pt-6">
               <img alt="up-chevron" src="../assets/up-chevron.svg" />
           </AnchorLink>
           <ProjectDetails selectedProject={selectedProject} setSelectedPage={setSelectedPage}/>
         </div>
-        </div>
+      </div>
       )}
       {!isDesktop && selectedProject && selectedProject!=='about' && (
         <ProjectDetailsMobile selectedProject={selectedProject} setSelectedProject={setSelectedProject}/>
