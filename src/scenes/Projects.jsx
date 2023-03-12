@@ -70,7 +70,7 @@ const Projects = ( { setSelectedProject } ) => {
           <div
             className="row-span-1 col-span-2">
             <Project
-              title="Visual art.png"
+              title="art.png"
               setSelectedProject={setSelectedProject}/>
           </div>
         </motion.div>
