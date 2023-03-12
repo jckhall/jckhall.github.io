@@ -78,7 +78,7 @@ function App() {
       <div>
         <div className="h-[calc(100vh-110px)] w-full rounded-3xl border-green border-4">
           <AnchorLink href="#work" className="z-50 absolute right-0 pr-10 pt-6">
-              <img alt="up-chevron" src="../assets/up-chevron.svg" />
+              <img alt="up-chevron" src={process.env.PUBLIC_URL + "/assets/up-chevron.svg"} />
           </AnchorLink>
           <ProjectDetails selectedProject={selectedProject} setSelectedPage={setSelectedPage}/>
         </div>
@@ -94,7 +94,7 @@ function App() {
           <button
               className="z-80 rounded-full bg-black"
               onClick={() => {setSelectedProject(undefined); setIsMenuToggled(true)}}>
-              <img alt="menu-icon" src="../assets/menu-icon.svg" />
+              <img alt="menu-icon" src={process.env.PUBLIC_URL + "/assets/menu-icon.svg"} />
           </button>
           </div>
       <div className="h-full pt-32 p-8">
@@ -117,7 +117,7 @@ function App() {
               target="_blank"
               rel="noreferrer"
             >
-              <img alt="linkedin-link" src="../assets/linkedin.png" />
+              <img alt="linkedin-link" src={process.env.PUBLIC_URL + "/assets/linkedin.png"}/>
             </a>
             <a
               className="hover:opacity-50 transition duration-500"
@@ -125,7 +125,7 @@ function App() {
               target="_blank"
               rel="noreferrer"
             >
-              <img alt="instagram-link" src="../assets/instagram.png" />
+              <img alt="instagram-link" src={process.env.PUBLIC_URL + "/assets/instagram.png"} />
             </a>
           </div>
         </motion.div>

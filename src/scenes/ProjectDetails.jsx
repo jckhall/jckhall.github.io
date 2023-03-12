@@ -29,7 +29,7 @@ const ProjectDetails = ( { selectedProject, setSelectedPage } ) => {
 							target="_blank"
 							rel="noreferrer"
 						>
-							<img alt="linkedin-link" src="../assets/linkedin.png" />
+							<img alt="linkedin-link" src={process.env.PUBLIC_URL + "/assets/linkedin.png"}/>
 						</a>
 						<a
 							className="hover:opacity-50 transition duration-500"
@@ -37,7 +37,7 @@ const ProjectDetails = ( { selectedProject, setSelectedPage } ) => {
 							target="_blank"
 							rel="noreferrer"
 						>
-							<img alt="instagram-link" src="../assets/instagram.png" />
+							<img alt="instagram-link" src={process.env.PUBLIC_URL + "/assets/instagram.png"} />
 						</a>
 					</div>
 				</motion.div>
