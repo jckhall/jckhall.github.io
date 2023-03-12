@@ -31,7 +31,7 @@ function App() {
             setSelectedProject={setSelectedProject}
             isMenuToggled={isMenuToggled}
             setIsMenuToggled={setIsMenuToggled}/>
-              <div className="m-auto sm:pt-24 w-4/5">
+              <div className="m-auto pt-48 sm:pt-20 w-4/5">
                 <motion.div
                   margin="0 0 -200px 0"
                   amount="all"
