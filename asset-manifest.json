@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/jckhall.github.io/static/css/main.c466aeb8.css",
-    "main.js": "/jckhall.github.io/static/js/main.1e11d664.js",
-    "index.html": "/jckhall.github.io/index.html",
-    "main.c466aeb8.css.map": "/jckhall.github.io/static/css/main.c466aeb8.css.map",
-    "main.1e11d664.js.map": "/jckhall.github.io/static/js/main.1e11d664.js.map"
+    "main.css": "/static/css/main.c466aeb8.css",
+    "main.js": "/static/js/main.f00de3ac.js",
+    "index.html": "/index.html",
+    "main.c466aeb8.css.map": "/static/css/main.c466aeb8.css.map",
+    "main.f00de3ac.js.map": "/static/js/main.f00de3ac.js.map"
   },
   "entrypoints": [
     "static/css/main.c466aeb8.css",
-    "static/js/main.1e11d664.js"
+    "static/js/main.f00de3ac.js"
   ]
 }
