@@ -6,8 +6,6 @@ import Projects from "./scenes/Projects";
 import ProjectDetails from "./scenes/ProjectDetails";
 import ProjectDetailsMobile from "./scenes/ProjectDetailsMobile";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { ProjectImage }  from "./utils/projectConfig";
-// import { ChevronLeft, ChevronRight } from "react-feather"
 
 
 
@@ -21,19 +19,19 @@ function App() {
     <div className="app bg-black">
       {isDesktop && (
         <section id="work">
-          <div className="z-20 w-full absolute py-4 bottom-0">
+          <div className="z-20 w-full fixed py-4 top-0">
             <div className="flex items-center justify-between">
               <h4 className="font-sans text-7xl mr-12 px-5 font-medium">JACK HALL</h4>
             </div>
           </div>
-          <div className="h-screen">
+          <div className="h-screen sm:flex sm:items-center">
             <Navbar
             selectedPage={selectedPage}
             setSelectedPage={setSelectedPage}
             setSelectedProject={setSelectedProject}
             isMenuToggled={isMenuToggled}
             setIsMenuToggled={setIsMenuToggled}/>
-              <div className="m-auto sm:pt-36 w-4/5">
+              <div className="m-auto sm:pt-24 w-4/5">
                 <motion.div
                   margin="0 0 -200px 0"
                   amount="all"

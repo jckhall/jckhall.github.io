@@ -19,7 +19,7 @@ export const ProjectImages = {
         "../assets/gum_2.png"
     ],
     art: [
-        "../assets/art.png",
+        "../assets/art.jpeg",
         "../assets/drawing_2.png"
     ]
 }

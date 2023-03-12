@@ -628,10 +628,6 @@ video {
   left: 0px;
 }
 
-.bottom-0{
-  bottom: 0px;
-}
-
 .top-0{
   top: 0px;
 }
@@ -1094,8 +1090,8 @@ body,
     align-items: center;
   }
 
-  .sm\:pt-36{
-    padding-top: 9rem;
+  .sm\:pt-24{
+    padding-top: 6rem;
   }
 
   .sm\:pt-20{
