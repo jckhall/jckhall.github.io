@@ -34,7 +34,7 @@ const Navbar = ({ selectedPage, setSelectedPage, setSelectedProject, isMenuToggl
   const isDesktop = useMediaQuery("(min-width: 948px)");
 
   return (
-    <nav className="fixed z-40 top-0 right-0 p-6">
+    <nav className="fixed z-40 right-0 top-0 pt-4 pr-2">
       <div className="flex items-center justify-between">
 
         {/* DESKTOP NAV */}

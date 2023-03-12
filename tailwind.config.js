@@ -18,7 +18,7 @@ module.exports = {
         "opaque-black": "rgba(0,0,0,0.35)",
       },
       fontFamily: {
-        sans: ['Inter var'],
+        sans: ['Inter var']
       },
       content: {
         brush: "url('./assets/brush.png')",

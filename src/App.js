@@ -21,19 +21,19 @@ function App() {
     <div className="app bg-black">
       {isDesktop && (
         <section id="work">
-          <div className="z-20 w-full fixed py-4 top-0">
+          <div className="z-20 w-full absolute py-4 bottom-0">
             <div className="flex items-center justify-between">
-              <h4 className="font-sans text-6xl mr-12 px-5 font-medium">JACK HALL</h4>
+              <h4 className="font-sans text-7xl mr-12 px-5 font-medium">JACK HALL</h4>
             </div>
           </div>
-          <div className="h-screen sm:flex sm:items-center">
+          <div className="h-screen">
             <Navbar
             selectedPage={selectedPage}
             setSelectedPage={setSelectedPage}
             setSelectedProject={setSelectedProject}
             isMenuToggled={isMenuToggled}
             setIsMenuToggled={setIsMenuToggled}/>
-              <div className="m-auto pt-48 sm:pt-20 w-4/5">
+              <div className="m-auto sm:pt-36 w-4/5">
                 <motion.div
                   margin="0 0 -200px 0"
                   amount="all"
