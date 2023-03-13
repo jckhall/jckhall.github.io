@@ -25,7 +25,7 @@ export const ProjectImages = {
 }
 
 export const ProjectImage = {
-    bioanalytics: process.env.PUBLIC_URL + '/assets/bioanalytics.mov',
+    bioanalytics: process.env.PUBLIC_URL + '/assets/bioanalytics.gif',
     tiles: process.env.PUBLIC_URL + '/assets/tiles.gif',
     thesis: process.env.PUBLIC_URL + '/assets/thesis.png',
     art: process.env.PUBLIC_URL + '/assets/art_detail.png'
