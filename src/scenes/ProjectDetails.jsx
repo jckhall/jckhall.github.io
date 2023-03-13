@@ -45,8 +45,8 @@ const ProjectDetails = ( { selectedProject, setSelectedPage } ) => {
   }
 
 	return (
-		<div className="h-full max-h-screen flex justify-between">
-				<div className="flex items-center pl-14">
+		<div className="h-full max-h-screen flex justify-start">
+				<div className="flex items-center pl-14 pr-16">
 					<img
 					className="h-5/6 cursor-pointer"
 					src={ProjectImage[selectedProject]}
