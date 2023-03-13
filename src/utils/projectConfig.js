@@ -25,8 +25,15 @@ export const ProjectImages = {
 }
 
 export const ProjectImage = {
-    bioanalytics: process.env.PUBLIC_URL + '/assets/bioanalytics.png',
+    bioanalytics: process.env.PUBLIC_URL + '/assets/bioanalytics.mov',
     tiles: process.env.PUBLIC_URL + '/assets/tiles.gif',
     gum: process.env.PUBLIC_URL + '/assets/gum.png',
     art: process.env.PUBLIC_URL + '/assets/art_detail.png'
+}
+
+export const ProjectName = {
+    bioanalytics: "Bioanalytics",
+    tiles: "Creative Coding",
+    gum: "Honours Thesis",
+    art: "Visual Art"
 }

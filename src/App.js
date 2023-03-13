@@ -21,7 +21,7 @@ function App() {
         <section id="work">
           <div className="z-20 w-full fixed py-4 top-0">
             <div className="flex items-center justify-between">
-              <h4 className="font-sans text-7xl mr-12 px-5 font-medium">JACK HALL</h4>
+              <h4 className="font-sans mt-12 text-xl ml-24 mr-12 px-5 font-medium">JACK HALL</h4>
             </div>
           </div>
           <div className="h-screen sm:flex sm:items-center">
@@ -31,7 +31,7 @@ function App() {
             setSelectedProject={setSelectedProject}
             isMenuToggled={isMenuToggled}
             setIsMenuToggled={setIsMenuToggled}/>
-              <div className="m-auto pt-48 sm:pt-20 w-4/5">
+              <div className="m-auto pt-48 sm:pt-20 w-3/5">
                 <motion.div
                   margin="0 0 -200px 0"
                   amount="all"
@@ -87,12 +87,11 @@ function App() {
       )}
       {!isDesktop && selectedProject==='about' && (
       <div className="z-40 fixed h-full inset-0 p-6 bg-black">
-          {/* CLOSE ICON */}
           <div className="flex justify-end">
           <button
               className="z-80 rounded-full bg-black"
-              onClick={() => {setSelectedProject(undefined); setIsMenuToggled(true)}}>
-              <img alt="menu-icon" src={process.env.PUBLIC_URL + "/assets/menu-icon.svg"} />
+              onClick={() => {setSelectedProject(undefined);}}>
+              <img alt="menu-icon" src={process.env.PUBLIC_URL + "/assets/close-icon.svg"} />
           </button>
           </div>
       <div className="h-full pt-32 p-8">

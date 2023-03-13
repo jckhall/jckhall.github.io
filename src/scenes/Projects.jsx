@@ -33,7 +33,7 @@ const Project = ({ title, setSelectedProject }) => {
       <img
           draggable="false"
           onClick={() => {setSelectedProject(project); setTimeout(() => {goToSection()}, 5);}}
-          className = "cursor-pointer border-2 sm:hover:scale-105 duration-700"
+          className = "cursor-pointer border-2 sm:hover:rounded-xl sm:hover:scale-105 duration-700"
           src={process.env.PUBLIC_URL + `/assets/${title}`} alt={project}/>
     </motion.div>
   );

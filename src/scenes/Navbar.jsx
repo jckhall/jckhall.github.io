@@ -32,12 +32,12 @@ const Navbar = ({ selectedPage, setSelectedPage, setSelectedProject, isMenuToggl
   const isDesktop = useMediaQuery("(min-width: 948px)");
 
   return (
-    <nav className="fixed z-40 right-0 top-0 pt-4 pr-2">
+    <nav className="fixed z-40 right-0 top-0">
       <div className="flex items-center justify-between">
 
         {/* DESKTOP NAV */}
         {isDesktop ? (
-          <div className="py-2 mr-10 flex justify-between gap-[200px] font-sans text-xl font-regular">
+          <div className="mt-[64px] mr-28 text-md font-sans flex justify-between gap-[100px]">
             <Link
               page="WORK"
               selectedPage={selectedPage}
@@ -62,7 +62,7 @@ const Navbar = ({ selectedPage, setSelectedPage, setSelectedProject, isMenuToggl
           </div>
         ) : (
           <button
-            className="z-80 rounded-full bg-black"
+            className="z-80 p-6 rounded-full bg-black"
             onClick={() => setIsMenuToggled(!isMenuToggled)}
           >
             <img alt="menu-icon" src={process.env.PUBLIC_URL + "/assets/menu-icon.svg"} />

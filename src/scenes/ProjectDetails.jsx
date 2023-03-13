@@ -1,7 +1,6 @@
-// import { motion } from "framer-motion";
 import { ProjectDescription }  from "../utils/projectConfig";
 import { ProjectImage }  from "../utils/projectConfig";
-// import Carousel from "./Carousel";
+import { ProjectName }  from "../utils/projectConfig";
 import { motion } from "framer-motion";
 
 
@@ -47,9 +46,6 @@ const ProjectDetails = ( { selectedProject, setSelectedPage } ) => {
 
 	return (
 		<div className="h-full max-h-screen flex justify-between">
-			 	<div className="z-30 absolute mr-28 pt-20 right-0">
-              <h4 className="font-sans text-8xl font-medium">{selectedProject.toUpperCase()}</h4>
-      	</div>
 				<div className="flex items-center pl-14">
 					<img
 					className="h-5/6 cursor-pointer"
@@ -62,12 +58,13 @@ const ProjectDetails = ( { selectedProject, setSelectedPage } ) => {
 					</Carousel>
 				</div> */}
 				<div className="pt-56 mr-28 max-w-[40%]">
-					<p className="text-green text-xl text-justify ">
+					<h4 className="pb-12 font-sans text-6xl font-medium">{ProjectName[selectedProject].toUpperCase()}</h4>
+					<p className="text-green text-justify ">
 						{ ProjectDescription[selectedProject] }
 					</p>
 				</div>
 		</div>
-	);
+		);
   };
   
   export default ProjectDetails;

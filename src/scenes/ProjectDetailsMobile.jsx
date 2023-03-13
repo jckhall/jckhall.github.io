@@ -1,4 +1,4 @@
-import { ProjectImage }  from "../utils/projectConfig";
+import { ProjectImage, ProjectName }  from "../utils/projectConfig";
 import { useEffect } from "react";
 
 
@@ -15,7 +15,7 @@ const ProjectDetailsMobile = ( { selectedProject, setSelectedProject } ) => {
 						<img alt="close-icon" src="../assets/close-icon.svg" />
 					</button>
 				</div>
-					<p className="text-green break-words font-sans text-8xl font-medium">{selectedProject}</p>
+					<p className="text-green break-words font-sans text-4xl font-medium">{ProjectName[selectedProject].toUpperCase()}</p>
 				<img
 					className="pt-12 cursor-pointer"
 					src={ProjectImage[selectedProject]}

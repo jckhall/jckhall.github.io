@@ -1,6 +1,9 @@
 # TO DO
-about link on page load
-Mobile flow
-Fill out content
+Content and project images
+ - bioanalytics
+ - art
+ - creative coding
+ - thesis
+
+ 
 contact page
-hosting
