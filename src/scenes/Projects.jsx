@@ -64,7 +64,7 @@ const Projects = ( { setSelectedProject } ) => {
           <div 
             className="row-span-2 col-span-4">
             <Project
-              title="gum.png"
+              title="thesis.png"
               setSelectedProject={setSelectedProject}/>
           </div>
           <div
