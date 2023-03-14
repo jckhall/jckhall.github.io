@@ -1,6 +1,6 @@
 export const ProjectDescription = {
-    bioanalytics: "As part of my internship with BioAnalytics I originated UI designs for a novel app, applying human centred design to best assimilate the needs of their end users.",
-    art: "With spending most of my time on a screen I've found myself going pack to the pen and paper and creating visual art again.",
+    bioanalytics: "As an intern at BioAnalytics, I performed market analysis and market research to help aid their pre-market strategy. From this research I sought to originate designs for a future application that may interface with their device. Throughout my BioEngineering degree we focused obsessively on the needs of the end user (the patient) and there was no difference here - Including personal messages and a bold palette. I built mockups through Framer and Figma and presented them to the c-suite at the conclusion of my time with the company.",
+    art: "I’ve always loved traditional visual art. With spending a lot of my time on the keyboard and screen these days spending time with the pen and paper has been instrumental to my balance.",
     tiles: "In my personal time I've really enjoyed exploring creative coding. The ability for computer systems to be generative and random helps to elicit spontaneity and joy in design.",
     thesis: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 }
