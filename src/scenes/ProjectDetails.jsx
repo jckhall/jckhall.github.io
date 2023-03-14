@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import Pdf from "../utils/Thesis_Report.pdf";
 import { File } from 'react-feather';
 import { GitHub } from 'react-feather';
+import P5 from "./P5";
+
 
 
 
@@ -87,6 +89,22 @@ const ProjectDetails = ( { selectedProject, setSelectedPage } ) => {
 					
 				</div>
 			</div>
+		);
+  }
+
+	if (selectedProject === 'tiles') {
+    return (
+			<div className="h-full max-h-screen flex justify-start">
+			<div className="flex items-center pl-14 pr-16">
+				<P5 />
+			</div>
+			<div className="pt-56 mr-28 max-w-[50%]">
+				<h4 className="pb-12 font-sans text-6xl font-medium">{ProjectName[selectedProject].toUpperCase()}</h4>
+				<p className="text-green text-justify ">
+					{ ProjectDescription[selectedProject] }
+				</p>
+			</div>
+	</div>
 		);
   }
 
