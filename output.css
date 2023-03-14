@@ -749,6 +749,14 @@ video {
   max-height: 100vh;
 }
 
+.max-h-\[90\%\]{
+  max-height: 90%;
+}
+
+.max-h-\[80\%\]{
+  max-height: 80%;
+}
+
 .min-h-0{
   min-height: 0px;
 }
@@ -783,6 +791,10 @@ video {
 
 .max-w-\[600px\]{
   max-width: 600px;
+}
+
+.max-w-\[50\%\]{
+  max-width: 50%;
 }
 
 .transform{
@@ -969,6 +981,18 @@ video {
 
 .pr-16{
   padding-right: 4rem;
+}
+
+.pt-44{
+  padding-top: 11rem;
+}
+
+.pb-8{
+  padding-bottom: 2rem;
+}
+
+.pt-36{
+  padding-top: 9rem;
 }
 
 .text-center{
