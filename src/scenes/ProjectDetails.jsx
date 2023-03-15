@@ -14,18 +14,18 @@ const ProjectDetails = ( { selectedProject, setSelectedPage } ) => {
 
 	if (selectedProject === 'about') {
     return (
-			<div className="h-full flex justify-center items-center p-8">
+			<div className="h-full flex justify-center items-center p-8 pt-20">
 				<motion.div
 				    initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ duration: 1.2 }}
 						onViewportEnter={() => setSelectedPage("about")}
 					>
-					<p className="font-sans text-6xl text-center">
-						Hey! My name's Jack, I'm a front end dev from Sydney and I love building beautiful products.
+					<p className="px-6 font-sans text-6xl text-center">
+						Hey! My name's Jack, I'm a front end dev from Sydney and I love building experiences full of utility and delight
 					</p>
-					<p className="mt-12 font-sans text-xl text-center">
-						Feel free to reach out on any of the pipes below
+					<p className="mx-48 mt-12 font-sans text-xl text-center">
+						This page is a work in progress so please come back soon to see upcoming projects and of course feel free to reach out on any of the pipes below if you want to chat
 					</p>
 					<div className="flex justify-center my-10 gap-7">
 						<a
@@ -59,16 +59,16 @@ const ProjectDetails = ( { selectedProject, setSelectedPage } ) => {
 						src={ProjectImage[selectedProject]}
 						alt={selectedProject}/>
 				</div>
-				<div className="pt-32 mr-28 max-w-[50%]">
+				<div className="pt-36 mr-28 max-w-[50%]">
 					<h4 className="pb-8 font-sans text-6xl font-medium">{ProjectName[selectedProject].toUpperCase()}</h4>
 					<div className="text-green text-justify ">
 						<p>Globally, 165 million infants are born every year, of which over 10 million require resuscitation and 1 million die from complications at birth. Overall, 99% of these deaths occur in resource-poor settings.</p>
 						<br/>
-						<p>In 2021, I completed my final year honours thesis investigating low cost technology to improve resuscitation in the most effected domains. For this, I partnered with ResusRight and successfully created a drastically cheaper flow meter to those currently on the market. To achieve this I used 3D printing to iterate through physical designs and wrote firmware in c++ to operate the sensors.</p>
+						<p>In 2021, I completed my final year honours thesis investigating low cost technology to improve resuscitation in the most effected domains. For this, I partnered with ResusRight and successfully created a drastically cheaper flow meter to those currently on the market. To achieve this I used 3D printing for physical tests and wrote firmware in c++ to operate the sensors.</p>
 						<br/>
 						<p>I was fortunate enough to be placed 1st in the 2021 Sydney University Biomedical Engineering Thesis Seminar for the presentation of my work and recieved the second highest mark of 93 for my paper. If you would like to have a read please find the pdf below! (it almost killed me).	</p>
 					</div>
-					<div className="flex my-10 gap-7">
+					<div className="flex my-5 gap-7">
 						<a
 							className="hover:opacity-50 transition duration-500"
 							href="https://github.com/jckhall/differential-pressure-sensor"
@@ -101,7 +101,11 @@ const ProjectDetails = ( { selectedProject, setSelectedPage } ) => {
 			<div className="pt-56 mr-28 max-w-[50%]">
 				<h4 className="pb-12 font-sans text-6xl font-medium">{ProjectName[selectedProject].toUpperCase()}</h4>
 				<p className="text-green text-justify ">
-					{ ProjectDescription[selectedProject] }
+					It is amazing what you can make with limited resources. I have been exploring creative coding lately with a focus on projects involving user interaction. 
+				</p>
+				<br/>
+				<p>
+				The example on the homepage lets a user explore and change an interactive grid system, it was written in processing, a graphical library based on Java. The drawing pad to your left is written with p5.js - a related library for the web. Have a play!
 				</p>
 			</div>
 	</div>

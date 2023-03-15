@@ -11,7 +11,9 @@ const P5 = () => {
 	};
 
 	const draw = (p5) => {
-		p5.circle(p5.mouseX, p5.mouseY, 40)
+		if (p5.mouseX > 0) {
+			p5.circle(p5.mouseX, p5.mouseY, 40)
+		}
 	};
 
 	return <Sketch setup={setup} draw={draw} />;

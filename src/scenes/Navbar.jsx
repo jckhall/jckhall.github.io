@@ -52,13 +52,6 @@ const Navbar = ({ selectedPage, setSelectedPage, setSelectedProject, isMenuToggl
               setSelectedProject={setSelectedProject}
               setIsMenuToggled={setIsMenuToggled}
             />
-            <Link
-              page="CONTACT"
-              selectedPage={selectedPage}
-              setSelectedPage={setSelectedPage}
-              setSelectedProject={setSelectedProject}
-              setIsMenuToggled={setIsMenuToggled}
-            />
           </div>
         ) : (
           <button
