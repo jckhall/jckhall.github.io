@@ -105,7 +105,7 @@ const ProjectDetails = ( { selectedProject, setSelectedPage } ) => {
 				</p>
 				<br/>
 				<p>
-				The example on the homepage lets a user explore and change an interactive grid system, it was written in processing, a graphical library based on Java. The drawing pad to your left is written with p5.js - a related library for the web. Have a play!
+				The example on the homepage lets a user explore and change an interactive grid system, it was written in processing, a graphical library based on Java. The drawing pad to your left is written with p5.js, a related library for the web. Have a play!
 				</p>
 			</div>
 	</div>
