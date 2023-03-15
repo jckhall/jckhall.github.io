@@ -30,7 +30,7 @@ const ProjectDetails = ( { selectedProject, setSelectedPage } ) => {
 					<div className="flex justify-center my-10 gap-7">
 						<a
 							className="hover:opacity-50 transition duration-500"
-							href="https://www.linkedin.com"
+							href="https://www.linkedin.com/in/jack-hall-5757b4140/"
 							target="_blank"
 							rel="noreferrer"
 						>
@@ -38,7 +38,7 @@ const ProjectDetails = ( { selectedProject, setSelectedPage } ) => {
 						</a>
 						<a
 							className="hover:opacity-50 transition duration-500"
-							href="https://www.instagram.com"
+							href="https://www.instagram.com/jackhall_/?hl=en"
 							target="_blank"
 							rel="noreferrer"
 						>
