@@ -57,7 +57,7 @@ function App() {
             setSelectedProject={setSelectedProject}
             isMenuToggled={isMenuToggled}
             setIsMenuToggled={setIsMenuToggled}/>
-              <div className="m-auto pt-48 sm:pt-20 w-4/5">
+              <div className="m-auto pt-64 sm:pt-20 w-4/5">
                 <motion.div
                   margin="0 0 -200px 0"
                   amount="all"
@@ -102,7 +102,7 @@ function App() {
             onViewportEnter={() => setSelectedPage("about")}
           >
           <p className="font-sans text-2xl text-center">
-            Hey! My name's Jack, I'm a front end dev from Sydney and I love building beautiful products.
+            Hey! My name's Jack, I'm a front end dev from Sydney and I love building an experience full of utility and delight
           </p>
           <p className="mt-12 font-sans text-xl text-center">
             Feel free to reach out on any of the pipes below
