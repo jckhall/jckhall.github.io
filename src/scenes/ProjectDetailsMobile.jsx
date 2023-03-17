@@ -4,9 +4,12 @@ import Pdf from "../utils/Thesis_Report.pdf";
 import { File } from 'react-feather';
 import { GitHub } from 'react-feather';
 import P5 from "./P5";
+import useMediaQuery from "../hooks/useMediaQuery";
+
 
 
 const ProjectDetailsMobile = ( { selectedProject, setSelectedProject } ) => {
+	const isDesktop = useMediaQuery("(min-width: 948px)");
 
 		useEffect(() => {
 			window.scrollTo(0, 0)
@@ -86,7 +89,7 @@ const ProjectDetailsMobile = ( { selectedProject, setSelectedProject } ) => {
 								</p>
 							</div>
 							<div className="border-2">
-								<P5 />
+							<P5 isDesktop={isDesktop}/>
 							</div>
 						</div>
 					)}

@@ -2,6 +2,7 @@ import { ProjectDescription }  from "../utils/projectConfig";
 import { ProjectImage }  from "../utils/projectConfig";
 import { ProjectName }  from "../utils/projectConfig";
 import { motion } from "framer-motion";
+import useMediaQuery from "../hooks/useMediaQuery";
 import Pdf from "../utils/Thesis_Report.pdf";
 import { File } from 'react-feather';
 import { GitHub } from 'react-feather';
@@ -11,6 +12,7 @@ import P5 from "./P5";
 
 
 const ProjectDetails = ( { selectedProject, setSelectedPage } ) => {
+	const isDesktop = useMediaQuery("(min-width: 948px)");
 
 	if (selectedProject === 'about') {
     return (
@@ -95,8 +97,8 @@ const ProjectDetails = ( { selectedProject, setSelectedPage } ) => {
 	if (selectedProject === 'tiles') {
     return (
 			<div className="h-full max-h-screen flex justify-start">
-			<div className="flex items-center pl-14 pr-16">
-				<P5 />
+			<div className="flex items-center pl-14 pr-16 overflow-hidden">
+				<P5 isDesktop={isDesktop}/>
 			</div>
 			<div className="pt-56 mr-28 max-w-[50%]">
 				<h4 className="pb-12 font-sans text-6xl font-medium">{ProjectName[selectedProject].toUpperCase()}</h4>
