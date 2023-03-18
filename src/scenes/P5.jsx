@@ -9,7 +9,7 @@ const P5 = ( { isDesktop } ) => {
 		if (isDesktop) {
 			p5.createCanvas(500, 500).parent(canvasParentRef);
 		} else {
-			p5.createCanvas(314, 500).parent(canvasParentRef);
+			p5.createCanvas(324, 500).parent(canvasParentRef);
 		}
 
 		p5.strokeWeight(3);

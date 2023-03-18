@@ -89,7 +89,7 @@ const ProjectDetailsMobile = ( { selectedProject, setSelectedProject } ) => {
 								</p>
 							</div>
 							<div className="border-2">
-							<P5 isDesktop={isDesktop}/>
+								<P5 isDesktop={isDesktop}/>
 							</div>
 						</div>
 					)}
