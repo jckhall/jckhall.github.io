@@ -59,7 +59,7 @@ const ProjectDetailsMobile = ( { selectedProject, setSelectedProject } ) => {
 						<div className="p-3">
 							<div className="text-green text-justify">
 								<p>
-									I’ve always loved traditional visual art. With spending a lot of my time on the keyboard and screen these days spending time with the pen and paper has been instrumental to my balance.
+									I’ve always loved traditional visual art. With my current focus on the keyboard and screen, spending time with pen and paper has been instrumental to a sense of balance.
 								</p>
 							</div>
 						</div>
