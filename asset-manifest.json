@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.543b7f04.css",
-    "main.js": "/static/js/main.45a9a71d.js",
+    "main.css": "/static/css/main.624dcfe5.css",
+    "main.js": "/static/js/main.1c52827f.js",
     "static/media/Thesis_Report.pdf": "/static/media/Thesis_Report.040eefdf76ce830a7631.pdf",
     "index.html": "/index.html",
-    "main.543b7f04.css.map": "/static/css/main.543b7f04.css.map",
-    "main.45a9a71d.js.map": "/static/js/main.45a9a71d.js.map"
+    "main.624dcfe5.css.map": "/static/css/main.624dcfe5.css.map",
+    "main.1c52827f.js.map": "/static/js/main.1c52827f.js.map"
   },
   "entrypoints": [
-    "static/css/main.543b7f04.css",
-    "static/js/main.45a9a71d.js"
+    "static/css/main.624dcfe5.css",
+    "static/js/main.1c52827f.js"
   ]
 }
