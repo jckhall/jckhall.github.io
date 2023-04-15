@@ -132,6 +132,43 @@ const ProjectDetails = ( { selectedProject, setSelectedPage } ) => {
 		</div>
 		);
   }
+	
+	if (selectedProject === 'dither') {
+    return (
+			<div className="h-full max-h-screen flex justify-start">
+			<div className="flex items-center pl-14">
+				<img
+				className="max-h-[80%] cursor-pointer"
+				src={ProjectImage[selectedProject]}
+				alt={selectedProject}/>
+			</div>
+			<div className="flex items-end flex-col pt-44 mr-28 max-w-[35%]">
+				<h4 className="pb-8 font-sans text-6xl font-medium">{ProjectName[selectedProject].toUpperCase()}</h4>
+				<p className="text-green text-justify ">
+					I've recently stepped in to help the great team at <a className='text-yellow' href="https://www.dither.app/">dither_</a>. I'm advising the team as they try to align to more structured software engineering practices whilst also looking forward at the feature roadmap to drive some product-led growth. The core stack is flutter for cross-platform mobile and react for the web. It has been an exciting challenge balancing stability and velocity in this early stage startup.
+				</p>
+			</div>
+		</div>
+		);
+  }
+
+	if (selectedProject === 'dish') {
+    return (
+			<div className="h-full max-h-screen flex justify-start">
+			<div className="flex items-center pl-14">
+				<img
+				className="max-h-[80%] cursor-pointer"
+				src={ProjectImage[selectedProject]}
+				alt={selectedProject}/>
+			</div>
+			<div className="flex items-end flex-col pl-20 pt-80 mr-28 max-w-[55%]">
+				<p className="text-green text-justify">
+					{ ProjectDescription[selectedProject] }
+				</p>
+			</div>
+		</div>
+		);
+  }
 
 	return (
 		<div className="h-full max-h-screen flex justify-start">

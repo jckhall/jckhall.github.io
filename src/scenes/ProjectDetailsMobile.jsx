@@ -5,6 +5,7 @@ import { File } from 'react-feather';
 import { GitHub } from 'react-feather';
 import P5 from "./P5";
 import useMediaQuery from "../hooks/useMediaQuery";
+import { ProjectDescription }  from "../utils/projectConfig";
 
 
 
@@ -22,7 +23,7 @@ const ProjectDetailsMobile = ( { selectedProject, setSelectedProject } ) => {
 						<img alt="close-icon" src="../assets/close-icon.svg" />
 					</button>
 				</div>
-				<p className="text-green break-words font-sans text-4xl font-medium">{ProjectName[selectedProject].toUpperCase()}</p>
+				{selectedProject !== 'dish' && (<p className="text-green break-words font-sans text-4xl font-medium">{ProjectName[selectedProject].toUpperCase()}</p>)}
 				<img
 					className="pt-12 pb-16 cursor-pointer"
 					src={ProjectImage[selectedProject]}
@@ -90,6 +91,15 @@ const ProjectDetailsMobile = ( { selectedProject, setSelectedProject } ) => {
 							</div>
 							<div className="border-2">
 								<P5 isDesktop={isDesktop}/>
+							</div>
+						</div>
+					)}
+					{selectedProject === 'dish' && (
+						<div className="p-3">
+							<div className="text-green text-justify pb-10">
+								<p className="text-green text-justify">
+										{ ProjectDescription[selectedProject] }
+								</p>
 							</div>
 						</div>
 					)}

@@ -43,7 +43,7 @@ const Projects = ( { setSelectedProject } ) => {
   return (
       <div className="flex justify-center">
         <motion.div
-          className="sm:grid sm:grid-cols-9 gap-5"
+          className="sm:grid sm:grid-cols-12 gap-5"
           variants={container}
           initial="hidden"
           whileInView="visible"
@@ -68,9 +68,21 @@ const Projects = ( { setSelectedProject } ) => {
               setSelectedProject={setSelectedProject}/>
           </div>
           <div
+            className="row-span-1 col-span-3">
+            <Project
+              title="dither.png"
+              setSelectedProject={setSelectedProject}/>
+          </div>
+          <div
             className="row-span-1 col-span-2">
             <Project
               title="art.png"
+              setSelectedProject={setSelectedProject}/>
+          </div>
+          <div
+            className="row-span-1 col-span-3">
+            <Project
+              title="dish.png"
               setSelectedProject={setSelectedProject}/>
           </div>
         </motion.div>

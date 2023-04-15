@@ -31,7 +31,7 @@ function App() {
             setSelectedProject={setSelectedProject}
             isMenuToggled={isMenuToggled}
             setIsMenuToggled={setIsMenuToggled}/>
-              <div className="m-auto pt-48 sm:pt-20 w-3/5">
+              <div className="m-auto pt-48 sm:pt-20 w-4/5">
                 <motion.div
                   margin="0 0 -200px 0"
                   amount="all"
@@ -50,14 +50,14 @@ function App() {
               <h4 className="font-sans text-6xl mr-12 px-5 font-medium">JACK HALL</h4>
             </div>
           </div>
-          <div className="sm:flex sm:items-center">
+          <div className="md:flex sm:items-center">
             <Navbar
             selectedPage={selectedPage}
             setSelectedPage={setSelectedPage}
             setSelectedProject={setSelectedProject}
             isMenuToggled={isMenuToggled}
             setIsMenuToggled={setIsMenuToggled}/>
-              <div className="m-auto pt-64 sm:pt-20 w-4/5">
+              <div className="m-auto pt-64 md:pt-20 w-4/5">
                 <motion.div
                   margin="0 0 -200px 0"
                   amount="all"
