@@ -7,6 +7,7 @@ import Pdf from "../utils/Thesis_Report.pdf";
 import { File } from "react-feather";
 import { GitHub } from "react-feather";
 import P5 from "./P5";
+import CloudDetail from "./CloudDetail";
 
 const ProjectDetails = ({ selectedProject, setSelectedPage }) => {
   const isDesktop = useMediaQuery("(min-width: 948px)");
@@ -195,19 +196,8 @@ const ProjectDetails = ({ selectedProject, setSelectedPage }) => {
 
   if (selectedProject === "dish") {
     return (
-      <div className="h-full max-h-screen flex justify-start">
-        <div className="flex items-center pl-14">
-          <img
-            className="max-h-[80%] cursor-pointer"
-            src={ProjectImage[selectedProject]}
-            alt={selectedProject}
-          />
-        </div>
-        <div className="flex items-end flex-col pl-20 pt-80 mr-28 max-w-[55%]">
-          <p className="text-green text-justify">
-            {ProjectDescription[selectedProject]}
-          </p>
-        </div>
+      <div className="h-full max-h-screen flex justify-start rounded-xl">
+        <CloudDetail />
       </div>
     );
   }
