@@ -1,5 +1,11 @@
 import * as THREE from "three";
-import React, { Suspense, useEffect, useState, useRef } from "react";
+import React, {
+  Suspense,
+  useEffect,
+  useRef,
+  useMemo,
+  useCallback,
+} from "react";
 import { extend, useFrame } from "@react-three/fiber";
 import {
   PerspectiveCamera,
@@ -7,8 +13,7 @@ import {
   MeshDistortMaterial,
   ContactShadows,
 } from "@react-three/drei";
-import { useSpring } from "@react-spring/core";
-import { a } from "@react-spring/three";
+import { useSpring, a } from "@react-spring/three";
 
 extend({ SphereGeometry: THREE.SphereGeometry });
 
@@ -17,49 +22,93 @@ const AnimatedMaterial = a(MeshDistortMaterial);
 export default function Scene({ setBg, onSphereClick }) {
   const sphere = useRef();
   const light = useRef();
-  const [mode, setMode] = useState(false);
-  const [down, setDown] = useState(false);
-  const [hovered, setHovered] = useState(false);
+  const [mode, setMode] = React.useState(false);
+  const [{ down, hovered }, setInteractionState] = React.useState({
+    down: false,
+    hovered: false,
+  });
 
   useEffect(() => {
     document.body.style.cursor = hovered ? "none" : "auto";
   }, [hovered]);
+
+  const updateSpherePosition = useCallback(
+    (state) => {
+      if (sphere.current) {
+        sphere.current.position.x = THREE.MathUtils.lerp(
+          sphere.current.position.x,
+          hovered ? state.mouse.x / 1.1 : 0,
+          0.2
+        );
+        sphere.current.position.y = THREE.MathUtils.lerp(
+          sphere.current.position.y,
+          Math.sin(state.clock.elapsedTime / 1.5) / 8 +
+            (hovered ? state.mouse.y / 1.1 : 0),
+          0.2
+        );
+      }
+    },
+    [hovered]
+  );
 
   useFrame((state) => {
     if (light.current) {
       light.current.position.x = state.mouse.x * 20;
       light.current.position.y = state.mouse.y * 20;
     }
-    if (sphere.current) {
-      sphere.current.position.x = THREE.MathUtils.lerp(
-        sphere.current.position.x,
-        hovered ? state.mouse.x / 1.1 : 0,
-        0.2
-      );
-      sphere.current.position.y = THREE.MathUtils.lerp(
-        sphere.current.position.y,
-        Math.sin(state.clock.elapsedTime / 1.5) / 8 +
-          (hovered ? state.mouse.y / 1.1 : 0),
-        0.2
-      );
-    }
+    updateSpherePosition(state);
   });
 
-  const [{ wobble, coat, color, ambient, env, distort, speed }] = useSpring(
-    {
-      wobble: down ? 1.95 : hovered ? 1.92 : 1.83,
-      coat: !hovered ? 1 : 1,
-      ambient: !hovered ? 0.8 : 0.5,
-      env: !hovered ? 0.7 : 1,
-      color: hovered ? "#E8B059" : "#202020",
-      distort: hovered ? 0.5 : 0.2,
-      speed: hovered ? 4 : 2,
-      config: (n) =>
-        n === "wobble" && hovered
-          ? { mass: 5, tension: 1000, friction: 3 }
-          : { mass: 1, tension: 500, friction: 20 },
-    },
-    [mode, hovered, down]
+  const { wobble, coat, color, ambient, env } = useSpring({
+    wobble: down ? 1.95 : hovered ? 1.92 : 1.83,
+    coat: 1,
+    ambient: hovered ? 0.5 : 0.8,
+    env: hovered ? 1 : 0.7,
+    color: hovered ? "#E8B059" : "#202020",
+    config: (n) =>
+      n === "wobble" && hovered
+        ? { mass: 5, tension: 1000, friction: 3 }
+        : { mass: 1, tension: 500, friction: 20 },
+  });
+
+  const handlePointerUp = useCallback(() => {
+    setInteractionState((state) => ({ ...state, down: false }));
+    setMode((prevMode) => !prevMode);
+    setBg({
+      background: mode ? "#202020" : "#f0f0f0",
+      fill: mode ? "#f0f0f0" : "#202020",
+    });
+    onSphereClick();
+  }, [mode, setBg, onSphereClick]);
+
+  const memoizedSphere = useMemo(
+    () => (
+      <a.mesh
+        ref={sphere}
+        scale={wobble}
+        position={[0, 0, 0]}
+        onPointerOver={() =>
+          setInteractionState((state) => ({ ...state, hovered: true }))
+        }
+        onPointerOut={() =>
+          setInteractionState((state) => ({ ...state, hovered: false }))
+        }
+        onPointerDown={() =>
+          setInteractionState((state) => ({ ...state, down: true }))
+        }
+        onPointerUp={handlePointerUp}
+      >
+        <sphereGeometry args={[1, 64, 64]} />
+        <AnimatedMaterial
+          color={color}
+          envMapIntensity={env}
+          clearcoat={coat}
+          clearcoatRoughness={0}
+          metalness={0.3}
+        />
+      </a.mesh>
+    ),
+    [wobble, color, env, coat, handlePointerUp]
   );
 
   return (
@@ -74,34 +123,7 @@ export default function Scene({ setBg, onSphereClick }) {
         />
       </PerspectiveCamera>
       <Suspense fallback={null}>
-        <a.mesh
-          ref={sphere}
-          scale={wobble}
-          position={[0, 0, 0]}
-          onPointerOver={() => setHovered(true)}
-          onPointerOut={() => setHovered(false)}
-          onPointerDown={() => setDown(true)}
-          onPointerUp={() => {
-            setDown(false);
-            setMode(!mode);
-            setBg({
-              background: !mode ? "#202020" : "#f0f0f0",
-              fill: !mode ? "#f0f0f0" : "#202020",
-            });
-            onSphereClick(); // Call the new callback function
-          }}
-        >
-          <sphereGeometry args={[1, 64, 64]} />
-          <AnimatedMaterial
-            color={color}
-            envMapIntensity={env}
-            clearcoat={coat}
-            clearcoatRoughness={0}
-            metalness={0.8}
-            distort={distort}
-            speed={speed}
-          />
-        </a.mesh>
+        {memoizedSphere}
         <Environment preset="dawn" />
         <ContactShadows
           rotation={[Math.PI / 2, 0, 0]}
