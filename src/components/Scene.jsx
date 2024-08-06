@@ -14,7 +14,7 @@ extend({ SphereGeometry: THREE.SphereGeometry });
 
 const AnimatedMaterial = a(MeshDistortMaterial);
 
-export default function Scene({ setBg }) {
+export default function Scene({ setBg, onSphereClick }) {
   const sphere = useRef();
   const light = useRef();
   const [mode, setMode] = useState(false);
@@ -88,6 +88,7 @@ export default function Scene({ setBg }) {
               background: !mode ? "#202020" : "#f0f0f0",
               fill: !mode ? "#f0f0f0" : "#202020",
             });
+            onSphereClick(); // Call the new callback function
           }}
         >
           <sphereGeometry args={[1, 64, 64]} />
