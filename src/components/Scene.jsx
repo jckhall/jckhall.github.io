@@ -33,31 +33,27 @@ export default function Scene({ setBg }) {
     if (sphere.current) {
       sphere.current.position.x = THREE.MathUtils.lerp(
         sphere.current.position.x,
-        hovered ? state.mouse.x / 1.1 : 0,
+        hovered ? state.mouse.x / 4 : 0,
         0.2
       );
       sphere.current.position.y = THREE.MathUtils.lerp(
         sphere.current.position.y,
-        Math.sin(state.clock.elapsedTime / 1.5) / 8 +
-          (hovered ? state.mouse.y / 1.1 : 0),
+        Math.sin(state.clock.elapsedTime / 1.5) / 12 +
+          (hovered ? state.mouse.y / 4 : 0),
         0.2
       );
     }
   });
 
-  const [{ wobble, coat, color, ambient, env, distort, speed }] = useSpring(
+  const [{ wobble, coat, color, ambient, env }] = useSpring(
     {
-      wobble: down ? 1.95 : hovered ? 1.92 : 1.83,
-      coat: !hovered ? 1 : 1,
-      ambient: !hovered ? 0.8 : 0.5,
-      env: !hovered ? 0.7 : 1,
-      color: hovered ? "#E8B059" : "#202020",
-      distort: hovered ? 0.5 : 0.2,
-      speed: hovered ? 4 : 2,
+      wobble: down ? 1.92 : hovered ? 1.9 : 1.83,
+      coat: mode && !hovered ? 0.04 : 1,
+      ambient: mode && !hovered ? 1.5 : 0.5,
+      env: mode && !hovered ? 0.4 : 1,
+      color: hovered ? "#E8B059" : mode ? "#202020" : "white",
       config: (n) =>
-        n === "wobble" && hovered
-          ? { mass: 5, tension: 1000, friction: 3 }
-          : { mass: 1, tension: 500, friction: 20 },
+        n === "wobble" && hovered && { mass: 3, tension: 1000, friction: 10 },
     },
     [mode, hovered, down]
   );
@@ -96,12 +92,10 @@ export default function Scene({ setBg }) {
             envMapIntensity={env}
             clearcoat={coat}
             clearcoatRoughness={0}
-            metalness={0.8}
-            distort={distort}
-            speed={speed}
+            metalness={0.1}
           />
         </a.mesh>
-        <Environment preset="dawn" />
+        <Environment preset="warehouse" />
         <ContactShadows
           rotation={[Math.PI / 2, 0, 0]}
           position={[0, -1.6, 0]}
