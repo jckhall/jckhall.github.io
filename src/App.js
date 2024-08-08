@@ -96,7 +96,7 @@ function App() {
       {isDesktop && selectedProject && (
         <div>
           <div className="h-[calc(100vh-110px)] relative mt-auto w-full rounded-3xl border-green border-4">
-            <div className="h-full overflow-scroll">
+            <div className="h-full overflow-scroll pb-6">
               <AnchorLink
                 href="#work"
                 className="z-50 absolute right-0 pr-10 pt-6 h-full"

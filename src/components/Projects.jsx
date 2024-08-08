@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import useMediaQuery from "../hooks/useMediaQuery";
-import ThreeSphere from "./ThreeSphere";
 
 const container = {
   hidden: {},
@@ -72,8 +71,8 @@ const Projects = ({ setSelectedProject }) => {
         <div className="row-span-1 col-span-2">
           <Project title="art.png" setSelectedProject={setSelectedProject} />
         </div>
-        <div variants={projectVariant} className="row-span-1 col-span-3">
-          <ThreeSphere />
+        <div className="row-span-1 col-span-3">
+          <Project title="dish.png" setSelectedProject={setSelectedProject} />
         </div>
       </motion.div>
     </div>
