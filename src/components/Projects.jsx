@@ -1,8 +1,6 @@
-import React, { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import useMediaQuery from "../hooks/useMediaQuery";
-
-const ThreeSphere = lazy(() => import("./ThreeSphere"));
+import ThreeSphere from "./ThreeSphere";
 
 const container = {
   hidden: {},
@@ -14,38 +12,37 @@ const container = {
 };
 
 const projectVariant = {
-  hidden: { opacity: 0, scale: 1 },
+  hidden: { opacity: 0, scale: 0.5 },
   visible: { opacity: 1, scale: 1 },
 };
 
-const Project = React.memo(({ title, setSelectedProject }) => {
+const Project = ({ title, setSelectedProject }) => {
   const project = title.split(".")[0].toLowerCase();
   const isDesktop = useMediaQuery("(min-width: 948px)");
 
   const goToSection = () => {
     if (isDesktop) {
-      document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById("about").scrollIntoView({ behavior: "smooth" });
     }
-  };
-
-  const handleClick = () => {
-    setSelectedProject(project);
-    setTimeout(goToSection, 5);
   };
 
   return (
     <motion.div variants={projectVariant} className="relative w-full h-full">
       <img
-        loading="lazy"
         draggable="false"
-        onClick={handleClick}
+        onClick={() => {
+          setSelectedProject(project);
+          setTimeout(() => {
+            goToSection();
+          }, 5);
+        }}
         className="cursor-pointer border-2 sm:hover:rounded-xl sm:hover:scale-105 duration-700 object-cover w-full h-full"
-        src={`${process.env.PUBLIC_URL}/assets/${title}`}
+        src={process.env.PUBLIC_URL + `/assets/${title}`}
         alt={project}
       />
     </motion.div>
   );
-});
+};
 
 const Projects = ({ setSelectedProject }) => {
   return (
@@ -75,14 +72,12 @@ const Projects = ({ setSelectedProject }) => {
         <div className="row-span-1 col-span-2">
           <Project title="art.png" setSelectedProject={setSelectedProject} />
         </div>
-        <div className="row-span-1 col-span-3">
-          <div className="w-full h-full">
-            <ThreeSphere />
-          </div>
+        <div variants={projectVariant} className="row-span-1 col-span-3">
+          <ThreeSphere />
         </div>
       </motion.div>
     </div>
   );
 };
 
-export default React.memo(Projects);
+export default Projects;
